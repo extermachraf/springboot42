@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinema Application</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      .status {
+        background: #e8f5e8;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 20px 0;
+        border-left: 4px solid #4caf50;
+      }
+      .nav-links {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin: 20px 0;
+      }
+      .nav-links a {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      .nav-links a:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎬 Cinema Application</h1>
+
+      <div class="status">
+        <strong>✅ Application Status: RUNNING</strong><br />
+        Spring Boot 3.5.4 with Java 22<br />
+        Database: PostgreSQL Connected<br />
+        Security: Spring Security Active
+      </div>
+
+      <div class="nav-links">
+        <a href="/profile">Profile</a>
+        <a href="/admin/panel/halls">Admin - Halls</a>
+        <a href="/admin/panel/films">Admin - Films</a>
+        <form th:action="@{/logout}" method="post" style="display: inline">
+          <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}"
+          />
+          <button
+            type="submit"
+            style="
+              background: none;
+              border: none;
+              color: #007bff;
+              text-decoration: underline;
+              cursor: pointer;
+              font-size: inherit;
+            "
+          >
+            Logout
+          </button>
+        </form>
+      </div>
+
+      <h2>Project Exercises Status:</h2>
+      <ul>
+        <li>❌ <strong>Exercise 00: Spring Security</strong> - In Progress</li>
+        <li>
+          ⏳ <strong>Exercise 01: Localization & Validation</strong> - Pending
+        </li>
+        <li>⏳ <strong>Exercise 03: Mails</strong> - Pending</li>
+      </ul>
+
+      <h3>Default Login Credentials:</h3>
+      <p>
+        <strong>Username:</strong> user<br />
+        <strong>Password:</strong> Check console logs for generated password
+      </p>
+    </div>
+  </body>
+</html>
